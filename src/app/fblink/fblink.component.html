@@ -1,0 +1,45 @@
+<mat-card class="Login-card">
+
+  <mat-card-header class="title">
+    <mat-card-title>
+      <h2> Login
+        <span *ngIf="loggedIn===true">{{user.firstName}} {{user.lastName}}, </span> 
+        to Employee Portal 
+      </h2>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <button type="button" (click)="signInWithFB()" *ngIf="loggedIn===false" mat-flat-button color="primary">Sign In With Facebook</button>
+      <button type="button" (click)="signOut()" *ngIf="loggedIn===true" mat-flat-button color="primary">Sign Out From Facebook</button>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card class="example-card" *ngIf="loggedIn===true">
+    <mat-card-header>
+      <mat-card-title><h2>Your Facebook Profile:</h2></mat-card-title>
+      <mat-card-subtitle>Full Name: {{user.firstName}} {{user.lastName}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="user.photoUrl" alt="My Facebook Photo">
+    <mat-card-content>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </mat-card-content>
+  </mat-card>
+
+  <form class="login-form" [formGroup] ="loginForm" (keyup.enter) = "onSubmit()" >
+      <mat-form-field class="Login-field" appearance="fill" >
+          <input matInput placeholder="Username" value="" formControlName = "username" class="input-field">
+          <mat-error *ngIf="username.errors?.required">Username is Required</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill" class="Login-field" >
+          <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName = "password" class="input-field">
+          <mat-error *ngIf="password.errors?.required">Password is Required</mat-error>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+      </mat-form-field>
+      <div *ngIf="errorMessage" class="error">Username or Password is incorrect</div>
+  </form>
+
+  <mat-card-actions>
+          <button mat-raised-button  (click) = "onSubmit()" class="login-button">LOG IN</button>
+  </mat-card-actions>
+</mat-card>

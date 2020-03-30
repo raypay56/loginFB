@@ -1,0 +1,59 @@
+  
+  .Login-card{
+    display: flex;
+    flex-direction: column;
+  }
+  .mat-card{
+    background-color: whitesmoke;
+    color: rgb(68, 63, 63);
+    justify-content: center;
+    max-width: 450px;
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    margin-top: 10%; 
+    flex-direction: column;
+  }
+  .title{
+    justify-content: center;
+    color: rgb(122, 121, 121);
+    font-weight: 500;;
+  }
+  .mat-form-field{
+    flex-direction: column;
+    width: 85%;
+    display: block;
+    justify-content: center;
+    margin: auto;
+  }
+  ::ng-deep .mat-form-field-wrapper{
+    margin-bottom: 4%;
+  }
+  ::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #E55934 !important;
+   }
+  .login-button{
+    background-color: #B8D8B8;
+  }
+  .error{
+    color: red;
+  }
+  .login-field{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .input-field{
+    display: block;
+    padding: 8px 5px;
+    border-radius: 0.5em;
+    text-align: center;
+    width: 40%;
+    margin: auto;
+    margin-bottom: 20px;
+   
+  }
+   
